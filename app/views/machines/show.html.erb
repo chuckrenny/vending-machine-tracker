@@ -4,8 +4,19 @@
 <h2>Snacks </h2>
   <% @machine.snacks.each do |snack| %>
     <li>
-      <p><%= snack.name%>: $<%= snack.price%> </p>
+      <p><%= snack.name%>: $<%= snack.price.to_f%> </p>
     </li>
   <% end%>
   <p>Average Price: $<%= @machine.average_snack_price %></p>
 </div>
+
+<div>
+<h2>Add Existing Snack </h2>
+  <%= form_with url: add_snack_machine_path(@machine), method: :post do |form| %>
+    <%= form.label :snack_id, 'Snack ID'%>
+    <%= form.text_field :snack_id%>
+    <%= form.submit 'Submit' %>
+  <% end%>
+</div>
+
+

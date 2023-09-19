@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     resources :machines, only: [:index]
   end
 
-  resources :machines, only: [:show]
+  resources :machines, only: [:show] do
+    post 'add_snack', on: :member # /machines/:id/add_snack
+  end
 end
